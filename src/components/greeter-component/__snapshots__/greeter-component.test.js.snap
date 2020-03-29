@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The greeter component on creating creates the expected DOM structure 1`] = `
+"<head></head><body>
+    <style>
+        .greeter-text {
+          font-size: 250px;
+        }
+    </style>
+    <div>
+      <span class=\\"greeter-text\\">Mr test</span>
+      <button id=\\"notice-button\\">Notice!</button>
+    </div>
+<greeter-component name-to-greete=\\"Mr test\\"></greeter-component></body>"
+`;
