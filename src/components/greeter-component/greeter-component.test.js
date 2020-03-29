@@ -8,25 +8,12 @@ const greeterComponentTag = "greeter-component";
 window.customElements.define(greeterComponentTag, GreeterComponent);
 
 describe("The greeter component", () => {
-    let element, shadowRoot;
+    let element;
+    
     beforeEach(() => {
         element = document.createElement(greeterComponentTag);
-        shadowRoot = element.shadowRoot;
         document.body.appendChild(element);
     });
-    
-    // A visual component should only deal with:
-    // 1 - Create a visual representation of the model
-    // 2 - Interact with the user 
-    // 3 - Notify to the outside world what relevant actions heppened
-    // 
-    // I'm interested on check three aspects of the components:
-    // 1- DOM generation (it is private)
-    // 2- The bindings are properly connected
-    // 3- The proper events are raised on the right interactions
-    //
-    // Everything ending up with a change in the DOM could be covered with snapshot/s
-    // To check the events we should create specific tests
     
     describe('on creating', () => {
         it('creates the expected DOM structure', () => {
