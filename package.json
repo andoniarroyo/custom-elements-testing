@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jest-environment-happy-dom",
-    "test:update": "jest --env=jest-environment-happy-dom --updateSnapshot"
+    "test": "jest",
+    "test:update": "jest --updateSnapshot"
   },
   "jest": {
     "transform": {
       "^.+\\.js?$": "babel-jest"
-    }
+    },
+    "testEnvironment": "jest-environment-jsdom-sixteen"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,6 @@
     "@babel/preset-env": "^7.9.0",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
-    "jest-environment-happy-dom": "0.0.41"
+    "jest-environment-jsdom-sixteen": "^1.0.3"
   }
 }

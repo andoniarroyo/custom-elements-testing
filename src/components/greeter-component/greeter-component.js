@@ -21,7 +21,7 @@ export class GreeterComponent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [nameToGreeteAttributeName];
+    return [GreeterComponent.nameToGreeteAttributeName];
   }
 
   #currentName = "...";
@@ -57,6 +57,7 @@ export class GreeterComponent extends HTMLElement {
         new CustomEvent("greetingNoticed", { bubles: true, detail: { noticedName: this.#currentName} }))
     });
   }
-  
 
 }
+
+customElements.define("greeter-component", GreeterComponent);

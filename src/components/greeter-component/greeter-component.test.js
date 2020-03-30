@@ -1,17 +1,12 @@
-import { Window } from 'happy-dom';
-import { GreeterComponent } from "./greeter-component";
+import "./greeter-component";
 
-const window = new Window();
-const document = window.document;
-
-const greeterComponentTag = "greeter-component";
-window.customElements.define(greeterComponentTag, GreeterComponent);
+const GREETER_COMPONENT_TAG = "greeter-component";
 
 describe("The greeter component", () => {
     let element;
     
     beforeEach(() => {
-        element = document.createElement(greeterComponentTag);
+        element = document.createElement(GREETER_COMPONENT_TAG);
         document.body.appendChild(element);
     });
     
