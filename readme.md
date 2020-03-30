@@ -27,18 +27,16 @@ To run the project:
 
  - Install the dependencies
 
-    npm i
+    ```npm i```
 
  - Run the tests
 
-    npm t
+    ```npm t```
 
  - To update the already generated snapshots:
 
-     npm run test:update
+     ```npm run test:update```
 
 I'll evolve the repository with new interactions and use cases.
 
 Any feedback is welcome.
-
-Andoni
