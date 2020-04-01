@@ -19,12 +19,13 @@ describe("The greeter component", () => {
         });
     });
 
-    describe('notifying to the outer scope', () => {
+    describe('notifying to the outer scope', done => {
         it('on greeting noticed the event is raised including the name of the moment', () => {
             element.addEventListener("greetingNoticed", (payload) => {
                 expect(payload).toBeTruthy();
                 expect(payload.detail).toBeTruthy();
                 expect(payload.detail.noticedName).toBe(newGreetingValue);
+                done();
             });      
 
             const newGreetingValue = "Mr test";
