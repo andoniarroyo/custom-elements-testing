@@ -21,10 +21,7 @@ describe("The greeter component", () => {
             let raisedEvent;
             givenAGreeterComponentSubscription("greetingNoticed", event => raisedEvent = event);
             whenNoticeButtonIsClicked();
-
-            expect(raisedEvent).toBeTruthy();
-            expect(raisedEvent.detail).toBeTruthy();
-            expect(raisedEvent.detail.noticedName).toBe(GREETING_VALUE);
+            thenTheGreetingNoticedEventIsRaised(raisedEvent, GREETING_VALUE);
         });
     });
 
@@ -43,7 +40,7 @@ describe("The greeter component", () => {
     };
 
     function givenAGreeterComponentSubscription(eventType, callback) {
-        thenTheGreeterComponent().addEventListener(eventType, callback);
+        getGreeterComponent().addEventListener(eventType, callback);
     };
 
     // when
@@ -53,6 +50,17 @@ describe("The greeter component", () => {
 
     // then
     function thenTheGreeterComponent() {
+        return getGreeterComponent();
+    };
+
+    function thenTheGreetingNoticedEventIsRaised (event, value) {
+        expect(event).toBeTruthy();
+        expect(event.detail).toBeTruthy();
+        expect(event.detail.noticedName).toBe(value);
+    }
+
+    // helper
+    function getGreeterComponent() {
         return document.querySelector(GREETER_COMPONENT_TAG);
     };
 
