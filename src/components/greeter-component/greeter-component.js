@@ -16,46 +16,36 @@ export class GreeterComponent extends HTMLElement {
   static nameToGreeteAttributeName = "name-to-greete";
   static tag = "greeter-component";
 
-  static get tag() {
-    return tag;
-  }
-
   static get observedAttributes() {
     return [GreeterComponent.nameToGreeteAttributeName];
   }
 
   #currentName = "...";
 
-  constructor() {
-    super();
-
-    this.appendTemplate();
-    this.updateGreeterText();
-  }
-
   connectedCallback() {
+    this.appendTemplate();
     this.subscribeToEvents();
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    this.#currentName = this.getAttribute(GreeterComponent.nameToGreeteAttributeName);
-    this.updateGreeterText();
-  }
-
   appendTemplate() {
-    let templateContent = template.content;
-    document.body.appendChild(templateContent);
-  }
-
-  updateGreeterText() {
-    document.querySelector(".greeter-text").innerHTML = this.#currentName;
+    let templateContent = template.content.cloneNode(true);
+    this.append(templateContent);
   }
 
   subscribeToEvents() {
-    document.querySelector("#notice-button").addEventListener('click', ()=> {
+    document.querySelector("#notice-button").addEventListener('click', () => {
       this.dispatchEvent(
         new CustomEvent("greetingNoticed", { bubles: true, detail: { noticedName: this.#currentName} }))
     });
+  }
+
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    this.#currentName = newVal;
+    this.updateGreeterText(newVal);
+  }
+
+  updateGreeterText(newGreeterName) {
+    document.querySelector(".greeter-text").textContent = newGreeterName;
   }
 
 }
