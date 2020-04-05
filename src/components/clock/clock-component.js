@@ -5,9 +5,9 @@ const templateString = `
         }
     </style>
     <div class="clock">
-      <span id="hours" class="hours">6</span>
-      <span id="minutes" class="minutes">6</span>
-      <span id="seconds" class="seconds">6</span>
+      <span id="hours" class="hours"></span>
+      <span id="minutes" class="minutes"></span>
+      <span id="seconds" class="seconds"></span>
     </div>
 `;
 const template = document.createElement('template');

@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The clock component on creating creates the expected DOM structure 1`] = `"<clock-component></clock-component>"`;
+
+exports[`The clock component on creating creates the expected DOM structure 2`] = `
+"
+    <style>
+        .clock {
+          font-size: 250px;
+        }
+    </style>
+    <div class=\\"clock\\">
+      <span id=\\"hours\\" class=\\"hours\\"></span>
+      <span id=\\"minutes\\" class=\\"minutes\\"></span>
+      <span id=\\"seconds\\" class=\\"seconds\\"></span>
+    </div>
+"
+`;

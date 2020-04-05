@@ -11,6 +11,7 @@ describe("The clock component", () => {
     describe('on creating', () => {
         it('creates the expected DOM structure', () => {
             expect(thenTheClockComponent().outerHTML).toMatchSnapshot();
+            expect(thenTheClockComponentShadowRoot().innerHTML).toMatchSnapshot();
         });
     });
 
@@ -27,12 +28,17 @@ describe("The clock component", () => {
 
     // then
     function thenTheClockComponent() {
-        return getClockComponent();
+        return getClockComponent(false);
+    };
+
+    function thenTheClockComponentShadowRoot() {
+        return getClockComponent(true);
     };
 
     // helper
-    function getClockComponent() {
-        return document.querySelector(CLOCK_COMPONENT_TAG);
+    function getClockComponent(returnShadowRoot) {
+        const clockComponent = document.querySelector(CLOCK_COMPONENT_TAG);
+        return returnShadowRoot ? clockComponent.shadowRoot : clockComponent;
     };
 
 });
